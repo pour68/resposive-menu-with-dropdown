@@ -1,0 +1,332 @@
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* variables */
+:root {
+    --header-height: 3.5rem;
+
+    /* colors */
+    --black-color: hsl(220, 24%, 12%);
+    --black-color-light: hsl(220, 24%, 15%);
+    --black-color-lighten: hsl(220, 20%, 18%);
+    --white-color: #fff;
+    --body-color: hsl(220, 100%, 97%);
+
+    /* typography */
+    --body-font: 'Montserrat', sans-serif;
+
+    --fs-md: 0.938rem;
+
+    --fw-regular: 400;
+    --fw-semi-bold: 600;
+
+    /* z index */
+    --zi-tooltip: 10;
+    --zi-fixed: 100;
+}
+
+@media (min-width: 1118px) {
+    :root {
+        --fs-md: 1rem;
+    }
+}
+
+/* base */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--fs-md);
+    background-color: var(--body-color);
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* utils */
+.container {
+    max-width: 1118px;
+    margin-inline: 1.5rem;
+}
+
+/* components */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--black-color);
+    box-shadow: 0 2px 16px hsla(220, 32%, 8%, 0.3);
+    z-index: var(--zi-fixed);
+}
+
+.nav {
+    height: var(--header-height);
+}
+
+.nav__data {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo,
+.nav__toggle,
+.nav__close {
+    color: var(--white-color);
+}
+
+.nav__logo {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 0.26rem;
+    font-weight: var(--fw-semi-bold);
+}
+
+.nav__logo i {
+    font-weight: initial;
+    font-size: 1.25rem;
+}
+
+.nav__toggle {
+    position: relative;
+    width: 32px;
+    height: 32px;
+}
+
+.nav__burger,
+.nav__close {
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    inset: 0;
+    margin: auto;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: opacity 0.1s, transform 0.4s;
+}
+
+.nav__close {
+    opacity: 0;
+}
+
+/* mobile */
+@media (max-width: 1118px) {
+    .nav__menu {
+        position: absolute;
+        left: 0;
+        top: 2.5rem;
+        width: 100%;
+        height: calc(100vh - 3.5rem);
+        overflow: auto;
+        pointer-events: none;
+        opacity: 0;
+        transition: top 0.4s, opacity 0.3s;
+    }
+
+    .nav__menu::-webkit-scrollbar {
+        width: 0;
+    }
+
+    .nav__list {
+        background-color: var(--black-color);
+        padding-top: 1rem;
+    }
+}
+
+.nav__link {
+    color: var(--white-color);
+    background-color: var(--black-color);
+    font-weight: var(--fw-semi-bold);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.nav__link:hover {
+    background-color: var(--black-color-light);
+}
+
+/* show menu */
+.nav__menu.show-menu {
+    opacity: 1;
+    top: 3.5rem;
+    pointer-events: initial;
+}
+
+/* show icon */
+.show-icon .nav__burger {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+.show-icon .nav__close {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+/* dropdown */
+.nav__dropdownItem {
+    cursor: pointer;
+}
+
+.nav__arrow {
+    font-size: 1.25rem;
+    font-weight: initial;
+    transition: transform 0.4s;
+}
+
+.nav__dropdownLink, .nav__dropdownSublink  {
+    padding: 1.25rem 1.25rem 1.25rem 2.5rem;
+    color: var(--white-color);
+    background-color: var(--black-color-light);
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    font-weight: var(--font-semi-bold);
+    transition: background-color 0.3s;
+}
+
+.nav__dropdownLink:hover, .nav__dropdownSublink:hover {
+    background-color: var(--black-color);
+}
+
+.nav__dropdownLink i, .nav__dropdownSublink i {
+    font-size: 1.25rem;
+    font-weight: initial;
+}
+
+.nav__dropdownMenu,  .nav__dropdownSubmenu{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+.nav__dropdownItem:hover .nav__dropdownMenu,
+.nav__dropdownSubitem:hover > .nav__dropdownSubmenu {
+    max-height: 1000px;
+    transition: max-height 0.4s ease-in;
+}
+
+/* rotate icon */
+.nav__dropdownItem:hover .nav__arrow {
+    transform: rotate(180deg);
+}
+
+/* dropdown submenu */
+.nav__add {
+    margin-left: auto;
+}
+
+.nav__dropdownSublink {
+    background-color: var(--black-color-lighten);
+}
+
+/* sm size devices */
+@media (max-width: 340px) {
+    .container {
+        margin-inline: 1rem;
+    }
+
+    .nav__link {
+        margin-inline: 1rem;
+    }
+}
+
+/* lg size devices */
+@media (min-width: 1118px) {
+    .container {
+        margin-inline: auto;
+        padding-inline: 1.5rem;
+    }
+
+    .nav {
+        height: calc(var(--header-height) + 2rem);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav__toggle {
+        display: none;
+    }
+
+    .nav__list {
+        height: 100%;
+        display: flex;
+        column-gap: 3rem;
+    }
+
+    .nav__link {
+        height: 100%;
+        padding: 0;
+        justify-content: initial;
+        column-gap: 0.25rem;
+    }
+
+    .nav__link:hover {
+        background-color: transparent;
+    }
+
+    .nav__dropdownItem,
+    .nav__dropdownSubitem {
+        position: relative;
+    }
+
+    .nav__dropdownMenu,
+    .nav__dropdownSubmenu {
+        position: absolute;
+        max-height: initial;
+        overflow: initial;
+        left: 0;
+        top: 6rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s, top 0.3s;
+    }
+
+    .nav__dropdownLink,
+    .nav__dropdownSublink {
+        padding-inline: 2rem;
+    }
+
+    .nav__dropdownSubItem .nav__dropdownLink {
+        padding-inline: 1rem;
+    }
+
+    .nav__dropdownSubmenu {
+        position: absolute;
+        left: 100%;
+        top: 0.5rem;
+    }
+
+    /* show dropdown menu */
+    .nav__dropdownItem:hover .nav__dropdownMenu {
+        opacity: 1;
+        top: 5.5rem;
+        pointer-events: initial;
+        transition: top 0.3s;
+    }
+
+    /* show dropdown submenu */
+    .nav__dropdownSubitem:hover > .nav__dropdownSubmenu {
+        opacity: 1;
+        pointer-events: initial;
+        transition: top 0.3s;
+    }
+}

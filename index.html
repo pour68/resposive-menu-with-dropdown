@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" />
+    <link rel="stylesheet" href="assets/css/app.css" />
+
+    <title>responsive menu with dropdown</title>
+</head>
+
+<body>
+
+    <header id="header" class="header">
+        <nav class="nav container">
+            <div class="nav__data">
+                <a href="#" class="nav__logo">
+                    <i class="ri-planet-line"></i> Admin
+                </a>
+
+                <div id="nav-toggle" class="nav__toggle">
+                    <i class="ri-menu-line nav__burger"></i>
+                    <i class="ri-close-line nav__close"></i>
+                </div>
+            </div>
+
+            <div id="nav-menu" class="nav__menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Dashboard
+                        </a>
+                    </li>
+                    <!-- dropdown -->
+                    <li class="nav__item nav__dropdownItem">
+                        <div class="nav__link">
+                            Analytics <i class="ri-arrow-down-s-line nav__arrow"></i>
+                        </div>
+
+                        <ul class="nav__dropdownMenu">
+                            <li>
+                                <a href="#" class="nav__dropdownLink">
+                                    <i class="ri-pie-chart-line"></i> Overview
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav__dropdownLink">
+                                    <i class="ri-arrow-up-down-line"></i> Transactions
+                                </a>
+                            </li>
+                            <!-- dropdown submenu -->
+                            <li class="nav__dropdownSubitem">
+                                <div class="nav__dropdownLink">
+                                    <i class="ri-bar-chart-line"></i> Reports <i
+                                        class="ri-arrow-right-s-line nav__add"></i>
+                                </div>
+
+                                <ul class="nav__dropdownSubmenu">
+                                    <li>
+                                        <a href="#" class="nav__dropdownSublink">
+                                            <i class="ri-file-list-3-line"></i> Documents
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="nav__dropdownSublink">
+                                            <i class="ri-cash-fill"></i> Payments
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="nav__dropdownSublink">
+                                            <i class="ri-refund-2-line"></i> Refunds
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Products
+                        </a>
+                    </li>
+                    <!-- dropdown -->
+                    <li class="nav__item nav__dropdownItem">
+                        <div class="nav__link">
+                            Users <i class="ri-arrow-down-s-line nav__arrow"></i>
+                        </div>
+
+                        <ul class="nav__dropdownMenu">
+                            <li>
+                                <a href="#" class="nav__dropdownLink">
+                                    <i class="ri-user-line"></i> Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav__dropdownLink">
+                                    <i class="ri-lock-line"></i> Accounts
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav__dropdownLink">
+                                    <i class="ri-chat-settings-line"></i> Messages
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
